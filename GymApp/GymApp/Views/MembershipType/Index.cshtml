@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Data.EntityModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@model IEnumerable<Data.EntityModel.MembershipType>
+
+@{ ViewData["Title"] = "Index"; }
+
+@{
+    Layout = null; }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link href="~/css/membership_style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <section class="section-3" id="pricing">
+        <h1 class="section-heading">Pricing</h1>
+        <div class="section-heading-line"></div>
+        <div class="swiper-container">
+            <div class="pricing-cards-wrapper swiper-wrapper">
+                @foreach (var s in Model)
+                {
+
+                <div class="pricing-card swiper-slide">
+                    <div class="pricing-card-front">
+                        <h1 class="pricing-card-heading heading-@s.TypeName">@s.TypeName</h1>
+                        <h3 class="pricing-card-price">@s.Price$</h3>
+                        <ul class="pricing-card-list list-free">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Pricing Card Item</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Pricing Card Item</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times"></i>
+                                <span>Pricing Card Item</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times"></i>
+                                <span>Pricing Card Item</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times"></i>
+                                <span>Pricing Card Item</span>
+                            </li>
+                        </ul>
+                        <button class="pricing-card-btn btn-free" >Choose Plan</button>
+                    </div>
+                    <div class="pricing-card-back back-free">
+                        <a asp-controller="Membership" asp-action="CreateMembership" asp-route-id="@s.MembershipTypeId">Order Now</a>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="~/js/membership.js"></script>
+
+</body>
+</html>

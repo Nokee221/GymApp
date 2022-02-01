@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Data.EntityModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@model IEnumerable<GymApp.EntityModel.Gym>
+
+@{ ViewData["Title"] = "Index"; Layout = null; }
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Gym</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/css/black_table_style.css">
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Gym</h2>
+                </div>
+            </div>
+            <a href="/Gym/Edit" class="btn btn-primary">ADD NEW</a>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-bordered table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var s in Model)
+                                {
+                                    <tr>
+                                        <td>@s.ID</td>
+                                        <td>@s.Name</td>
+                                        <td>@s.Description</td>
+                                        <td>@s.Address</td>
+                                        <td>
+                                            <a href="/Gym/Edit?GymID=@s.ID" class="btn btn-primary">Edit</a>
+                                            <a href="/Gym/Delete?GymID=@s.ID" class="btn btn-primary">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <a href="/Administration/Dashboard">Go back</a>
+        </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

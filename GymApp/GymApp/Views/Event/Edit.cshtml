@@ -1,0 +1,290 @@
+﻿@model GymApp.Models.EventAddVM;
+
+@{ ViewData["Title"] = "Create"; }
+
+
+<head>
+    <style>
+
+        .input-group-addon {
+            cursor: pointer;
+        }
+
+        .form-control {
+            border: 1px solid #ccc;
+            box-shadow: none;
+        }
+
+            .form-control:hover, .form-control:focus, .form-control:active {
+                box-shadow: none;
+            }
+
+            .form-control:focus {
+                border: 1px solid #34495e;
+            }
+
+
+        .bootstrap-datetimepicker-widget.dropdown-menu {
+            border: 1px solid #34495e;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 10px 0 0 0;
+            padding: 0;
+            min-width: 300px;
+            max-width: 100%;
+            width: auto;
+        }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before, .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+                display: none;
+            }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu table td,
+            .bootstrap-datetimepicker-widget.dropdown-menu table th {
+                border-radius: 0;
+            }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu table td.old, .bootstrap-datetimepicker-widget.dropdown-menu table td.new {
+                    color: #bbb;
+                }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu table td.today:before {
+                    border-bottom-color: #0095ff;
+                }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu table td.active,
+                .bootstrap-datetimepicker-widget.dropdown-menu table td.active:hover,
+                .bootstrap-datetimepicker-widget.dropdown-menu table td span.active {
+                    background-color: #0095ff;
+                    text-shadow: none;
+                }
+
+                    .bootstrap-datetimepicker-widget.dropdown-menu table td.active.today:before,
+                    .bootstrap-datetimepicker-widget.dropdown-menu table td.active:hover.today:before,
+                    .bootstrap-datetimepicker-widget.dropdown-menu table td span.active.today:before {
+                        border-bottom-color: #fff;
+                    }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu table th {
+                height: 40px;
+                padding: 0;
+                width: 40px;
+            }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu table th.picker-switch {
+                    width: auto;
+                }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu table tr:first-of-type th {
+                border-bottom: 1px solid #34495e;
+            }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu table td.day {
+                height: 32px;
+                line-height: 32px;
+                padding: 0;
+                width: auto;
+            }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu table td span {
+                border-radius: 0;
+                height: 77px;
+                line-height: 77px;
+                margin: 0;
+                width: 25%;
+            }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-months tbody tr td,
+            .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-years tbody tr td,
+            .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-decades tbody tr td {
+                padding: 0;
+            }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-decades tbody tr td {
+                height: 27px;
+                line-height: 27px;
+            }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-decades tbody tr td span {
+                    display: block;
+                    float: left;
+                    width: 50%;
+                    height: 46px;
+                    line-height: 46px !important;
+                    padding: 0;
+                }
+
+                    .bootstrap-datetimepicker-widget.dropdown-menu .datepicker-decades tbody tr td span:not(.decade) {
+                        display: none;
+                    }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td {
+                padding: 0;
+                width: 30%;
+                height: 20px;
+                line-height: 20px;
+            }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td:nth-child(2) {
+                    width: 10%;
+                }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td a,
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td span,
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td button {
+                    border: none;
+                    border-radius: 0;
+                    height: 56px;
+                    line-height: 56px;
+                    padding: 0;
+                    width: 100%;
+                }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td span {
+                    color: #333;
+                    margin-top: -1px;
+                }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td button {
+                    background-color: #fff;
+                    color: #333;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                }
+
+                    .bootstrap-datetimepicker-widget.dropdown-menu .timepicker-picker table td button:hover {
+                        background-color: #eee;
+                    }
+
+            .bootstrap-datetimepicker-widget.dropdown-menu .picker-switch table td {
+                border-top: 1px solid #34495e;
+            }
+
+                .bootstrap-datetimepicker-widget.dropdown-menu .picker-switch table td a, .bootstrap-datetimepicker-widget.dropdown-menu .picker-switch table td span {
+                    display: block;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0;
+                    width: 100%;
+                }
+
+        .todayText:before {
+            content: "Today's Date";
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+
+
+<body>
+    <h1>Create</h1>
+    <h4>CreateIndexVM</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Save" asp-controller="Event" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="custom-control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="custom-control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="custom-control-label"></label>
+                    <input asp-for="StartDate" class="form-control" placeholder="MM/DD/YYYY" />
+                    <span asp-validation-for="StartDate" class="input-group-append input-group-addon"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NameOfCoach" class="custom-control-label"></label>
+                    <input asp-for="NameOfCoach" class="form-control" />
+                    <span asp-validation-for="NameOfCoach" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FinishDate" class="custom-control-label"></label>
+                    <input asp-for="FinishDate" class="form-control" placeholder="MM/DD/YYYY" />
+                    <span asp-validation-for="FinishDate" class="input-group-append input-group-addon"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GymID" class="custom-control-label"></label>
+                    <input asp-for="GymID" class="form-control" />
+                    <span asp-validation-for="GymID" class="text-danger"></span>
+                </div>
+                <div class="form-control">
+                    <label asp-for="EventImage" class="custom-control-label"></label>
+                    <input asp-for="EventImage" class="form-control" />
+                    <span asp-validation-for="EventImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js'></script>
+    <script id="rendered-js">
+        if (/Mobi/.test(navigator.userAgent)) {
+            // if mobile device, use native pickers
+            $(".date input").attr("type", "date");
+            $(".time input").attr("type", "time");
+        } else {
+            // if desktop device, use DateTimePicker
+            $("#datepicker").datetimepicker({
+                useCurrent: false,
+                format: "L",
+                showTodayButton: true,
+                icons: {
+                    next: "fa fa-chevron-right",
+                    previous: "fa fa-chevron-left",
+                    today: 'todayText'
+                }
+            });
+
+
+            $("#timepicker").datetimepicker({
+                format: "LT",
+                icons: {
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down"
+                }
+            });
+
+
+        }
+//# sourceURL=pen.js
+    </script>
+
+
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
