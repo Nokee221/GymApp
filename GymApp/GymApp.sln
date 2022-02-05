@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GymApp", "GymApp\GymApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{021633A1-A88D-41DE-A593-061850A47E81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymAppAngular", "GymAppAngular\GymAppAngular.csproj", "{566C4178-20CD-49C6-A8B9-2AA344FC8C12}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{021633A1-A88D-41DE-A593-061850A47E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021633A1-A88D-41DE-A593-061850A47E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021633A1-A88D-41DE-A593-061850A47E81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{566C4178-20CD-49C6-A8B9-2AA344FC8C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{566C4178-20CD-49C6-A8B9-2AA344FC8C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{566C4178-20CD-49C6-A8B9-2AA344FC8C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{566C4178-20CD-49C6-A8B9-2AA344FC8C12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
